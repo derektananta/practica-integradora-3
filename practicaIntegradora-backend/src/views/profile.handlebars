@@ -1,0 +1,18 @@
+<div>
+    {{#if user}}
+    <h2>User profile</h2>
+    <p>Name: {{user.fullName}}</p>
+    <p>Age: {{user.age}}</p>
+    <p>Email: {{user.email}}</p>
+
+    <p>Rol: {{user.rol}}</p>
+    
+    <button id="logout">Logout</button>
+
+    {{else}}
+    <p>You must log in to view your profile.</p>
+    <a href="/login">Login</a>
+    {{/if}}
+</div>
+
+<script src="/js/logout.js"></script>

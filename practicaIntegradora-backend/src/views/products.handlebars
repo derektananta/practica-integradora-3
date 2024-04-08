@@ -1,0 +1,22 @@
+<div>
+    <h2 class="page_title">Products</h2>
+        <a href="/myCart">My Cart</a>
+    <div class="productsContainer">
+        {{#each products}}
+        <div class="product">
+            <h3>{{title}}</h3>
+            <p>Price: ${{price}}</p>
+            <p>Category: {{category}}</p>
+            <button class="product_AddCartButton" data-product-id="{{_id}}">add to cart</button>
+        </div>
+        {{/each}}
+    </div>
+    {{#if prevLink}}
+    <a href="{{prevLink}}">Previous Page</a>
+    {{/if}}
+    {{#if nextLink}}
+    <a href="{{nextLink}}">Next Page</a>
+    {{/if}}
+</div>
+
+<script src="/js/userCart.js"></script>

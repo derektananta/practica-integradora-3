@@ -1,0 +1,41 @@
+<h1>Your Shopping Cart</h1>
+
+{{#if userCart}}
+{{#if userCart.products.length}}
+<table>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each userCart.products}}
+        <td>{{this.product.title}}</td>
+        <td>{{this.product.category}}</td>
+        <td>${{this.product.price}}</td>
+        <td>{{quantity}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<hr>
+<div>
+    <div>Total:</div>
+    <div>${{totalAmount}}</div>
+</div>
+<hr>
+<button id="emptyButton">Empty Cart</button>
+<hr>
+<button id="purchaseButton">Purchase</button>
+{{else}}
+<p>Your cart is empty.</p>
+{{/if}}
+{{else}}
+<p>Please login to view your cart.</p>
+{{/if}}
+
+<script src="/js/purchaseCart.js"></script>
+<script src="/js/emptyCart.js"></script>

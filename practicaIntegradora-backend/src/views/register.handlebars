@@ -1,0 +1,19 @@
+<div>
+    {{#if user}}
+    <p>You are currently logged in as {{user.name}}, you need to log out before logging in with a different user</p>
+    <button id="logout">logout</button>
+    {{else}}
+    <h2>Register</h2>
+    <form id="registerForm" class="form_container">
+        <input class="form_input" name="first_name" type="text" placeholder="Name">
+        <input class="form_input" name="last_name" type="text" placeholder="Surname">
+        <input class="form_input" name="email" type="text" placeholder="Email">
+        <input class="form_input" name="age" type="text" placeholder="Age">
+        <input class="form_input" type="password" name="password" placeholder="Password">
+        <input class="form_input" type="submit">
+    </form>
+    {{/if}}
+</div>
+
+<script src="/js/register.js"></script>
+<script src="/js/logout.js"></script>

@@ -1,0 +1,57 @@
+<h1>Admin Panel</h1>
+
+<form id="createProductForm" class="form_container">
+    <label for="title">Title:</label>
+    <input class="form_input" type="text" id="title" name="title" required>
+
+    <label for="description">Description:</label>
+    <textarea class="form_input" id="description" name="description" required></textarea>
+
+    <label for="price">Price:</label>
+    <input class="form_input" type="number" id="price" name="price" step="0.01" required>
+
+    <label for="thumbnail">Thumbnail URL:</label>
+    <input class="form_input" type="text" id="thumbnail" name="thumbnail" required>
+
+    <label for="code">Code:</label>
+    <input class="form_input" type="text" id="code" name="code" required>
+
+    <label for="stock">Stock:</label>
+    <input class="form_input" type="number" id="stock" name="stock" required>
+
+    <label for="category">Category:</label>
+    <input class="form_input" type="text" id="category" name="category" required>
+
+    {{#if user.rol}}
+        {{#if isPremium}}
+            <label for="owner">Owner:</label>
+            <input class="form_input" type="text" id="owner" name="owner" value="{{user.email}}" readonly>
+        {{/if}}
+    {{/if}}
+
+    <button class="form_input" type="submit" id="createOrUpdateBtn">Create Product</button>
+</form>
+
+{{#if user.rol}}
+    {{#if isAdmin}}
+        <label for="productSelect">Select a Product to Delete:</label>
+        <select id="productSelect" name="productIdToDelete">
+            {{#each products}}
+                <option value="{{this._id}}">{{this.title}}</option>
+            {{/each}}
+        </select>
+        <button id="deleteProductBtn">Delete Product</button>
+    {{/if}}
+
+    {{#if isPremium}}
+        <label for="productSelect">Select a Product to Delete:</label>
+        <select id="productSelect" name="productIdToDelete">
+            {{#each premiumProducts}}
+                <option value="{{this._id}}">{{this.title}}</option>
+            {{/each}}
+        </select>
+        <button id="deleteProductBtn">Delete Product</button>
+    {{/if}}
+{{/if}}
+
+<script src="/js/admin.js"></script>
